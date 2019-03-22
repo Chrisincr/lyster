@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contender:</strong>
+  <%= @point.contender %>
+</p>
+
+<p>
+  <strong>Challenger:</strong>
+  <%= @point.challenger %>
+</p>
+
+<p>
+  <strong>Contender score:</strong>
+  <%= @point.contender_score %>
+</p>
+
+<p>
+  <strong>Challenger score:</strong>
+  <%= @point.challenger_score %>
+</p>
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>

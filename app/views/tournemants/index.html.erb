@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tournemants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tournemants.each do |tournemant| %>
+      <tr>
+        <td><%= tournemant.name %></td>
+        <td><%= tournemant.user %></td>
+        <td><%= tournemant.description %></td>
+        <td><%= tournemant.start_date %></td>
+        <td><%= link_to 'Show', tournemant %></td>
+        <td><%= link_to 'Edit', edit_tournemant_path(tournemant) %></td>
+        <td><%= link_to 'Destroy', tournemant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tournemant', new_tournemant_path, class: 'btn btn-primary' %>

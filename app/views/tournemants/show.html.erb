@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tournemant.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tournemant.user %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tournemant.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @tournemant.start_date %>
+</p>
+
+<%= link_to 'Edit', edit_tournemant_path(@tournemant) %> |
+<%= link_to 'Back', tournemants_path %>
