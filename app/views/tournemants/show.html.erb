@@ -1,24 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tournemant.name %>
-</p>
+<div class='container'>
+  <div class='row'>
+    <div class ='col-md-6'>
 
-<p>
-  <strong>User:</strong>
-  <%= @tournemant.user %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tournemant.description %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @tournemant.name %>
+    </p>
+    
+    <p>
+      <strong>Organizer:</strong>
+      <%= @tournemant.user.name %>
+    </p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= @tournemant.description %>
+    </p>
+    
+    <p>
+      <strong>Start date:</strong>
+      <%= @tournemant.start_date %>
+    </p>
+    
+    <%= link_to 'Edit', edit_tournemant_path(@tournemant), class: 'btn btn-primary' %> |
+    <%= link_to 'Back', tournemants_path, class: 'btn btn-primary' %>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @tournemant.start_date %>
-</p>
 
-<%= link_to 'Edit', edit_tournemant_path(@tournemant) %> |
-<%= link_to 'Back', tournemants_path %>
+
+    </div>
+    <div class ='col-md-6'>
+      <%= render :partial => 'rounds/index' %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class ='col-md-12'>
+      <%= render :partial => 'combatants/index' %>
+    </div>
+  </div>
+</div>
+
+
+
+

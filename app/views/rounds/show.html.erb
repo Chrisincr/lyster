@@ -1,14 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <div class='row'>
 
-<p>
-  <strong>Number:</strong>
-  <%= @round.number %>
-</p>
+    <div class='col-md-6'>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tournemant:</strong>
-  <%= @round.tournemant %>
-</p>
+      <p>
+        <strong>Number:</strong>
+        <%= @round.number %>
+      </p>
+      
+      <p>
+        <strong>Tournemant:</strong>
+        <%= @round.tournemant.name %>
+      </p>
+      
+      <%= link_to 'Edit', edit_round_path(params[:tid],params[:rid]) %> |
+      <%= link_to 'Back', tournemant_path(params[:tid]) %>
+    </div>
 
-<%= link_to 'Edit', edit_round_path(@round) %> |
-<%= link_to 'Back', rounds_path %>
+    <div class='col-md-6'>
+      <%= render :partial => 'matches/index' %>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+

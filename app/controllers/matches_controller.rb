@@ -28,7 +28,7 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to round_path, action: 'show',id: params[:id],rid: params[:rid], notice: 'Match was successfully created.' }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MatchesController < ApplicationController
   def update
     respond_to do |format|
       if @match.update(match_params)
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to round_path, action: 'show',id: params[:id],rid: params[:rid], notice: 'Match was successfully updated.' }
         format.json { render :show, status: :ok, location: @match }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MatchesController < ApplicationController
   def destroy
     @match.destroy
     respond_to do |format|
-      format.html { redirect_to matches_url, notice: 'Match was successfully destroyed.' }
+      format.html { redirect_to round_path, action: 'show',id: params[:id],rid: params[:rid], notice: 'Match was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +64,7 @@ class MatchesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_match
-      @match = Match.find(params[:id])
+      @match = Match.find(params[:mid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

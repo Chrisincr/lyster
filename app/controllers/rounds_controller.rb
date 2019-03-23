@@ -4,12 +4,13 @@ class RoundsController < ApplicationController
   # GET /rounds
   # GET /rounds.json
   def index
-    @rounds = Round.all
+    @rounds = Round.where(tournemant_id:params[:id])
   end
 
   # GET /rounds/1
   # GET /rounds/1.json
   def show
+    @matches = @round.matches.all
   end
 
   # GET /rounds/new
@@ -28,7 +29,7 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.save
-        format.html { redirect_to @round, notice: 'Round was successfully created.' }
+        format.html { redirect_to rounds_path, action: 'show',id: params[:id], notice: 'Round was successfully created.' }
         format.json { render :show, status: :created, location: @round }
       else
         format.html { render :new }
@@ -64,7 +65,7 @@ class RoundsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_round
-      @round = Round.find(params[:id])
+      @round = Round.find(params[:rid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

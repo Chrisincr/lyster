@@ -10,6 +10,8 @@ class TournemantsController < ApplicationController
   # GET /tournemants/1
   # GET /tournemants/1.json
   def show
+    @rounds = @tournemant.rounds.all
+    @combatants = @tournemant.combatants.all
   end
 
   # GET /tournemants/new
@@ -64,7 +66,7 @@ class TournemantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tournemant
-      @tournemant = Tournemant.find(params[:id])
+      @tournemant = Tournemant.find(params[:tid])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
