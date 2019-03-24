@@ -14,21 +14,27 @@ class CombatantsController < ApplicationController
 
   # GET /combatants/new
   def new
-    @combatant = Combatant.new
+    @combatant = Combatant.new(tournament_id:params[:tid])
+    @users = User.all.collect{|u| [u.name, u.id]}
   end
 
   # GET /combatants/1/edit
   def edit
+    @users = User.all.collect{|u| [u.name, u.id]}
   end
 
   # POST /combatants
   # POST /combatants.json
   def create
     @combatant = Combatant.new(combatant_params)
-
+    exists = Combatant.where(combatant_params).count
+    if exists > 0
+     
+      redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Participant Already Entered.' and return
+    end
     respond_to do |format|
       if @combatant.save
-        format.html { redirect_to @combatant, notice: 'Combatant was successfully created.' }
+        format.html { redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Combatant was successfully created.' }
         format.json { render :show, status: :created, location: @combatant }
       else
         format.html { render :new }
@@ -56,7 +62,7 @@ class CombatantsController < ApplicationController
   def destroy
     @combatant.destroy
     respond_to do |format|
-      format.html { redirect_to combatants_url, notice: 'Combatant was successfully destroyed.' }
+      format.html { redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Combatant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +75,6 @@ class CombatantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def combatant_params
-      params.require(:combatant).permit(:user_id, :tournemant_id)
+      params.require(:combatant).permit(:user_id, :tournament_id)
     end
 end

@@ -1,9 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
+  <div class='row'>
 
-<p>
-  <strong>Round:</strong>
-  <%= @match.round.number %>
-</p>
+    <div class='col-md-6'>
+      <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_match_path(params[:tid],params[:rid],params[:mid]) %> |
-<%= link_to 'Back', round_path(params[:tid],params[:rid]) %>
+      <p>
+        <strong>Round:</strong>
+        <%= @match.round.number %>
+      </p>
+
+      <%= link_to 'Edit', edit_match_path(params[:tid],params[:rid],params[:mid]) %> |
+      <%= link_to 'Back', round_path(params[:tid],params[:rid]) %>
+    </div>
+
+      <div class='col-md-6'>
+        <%= render :partial => 'points/index' %>
+      </div>
+  </div>
+</div>

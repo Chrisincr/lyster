@@ -15,7 +15,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/new
   def new
-    @round = Round.new
+    @round = Round.new(tournament_id:params[:tid])
   end
 
   # GET /rounds/1/edit
@@ -29,7 +29,7 @@ class RoundsController < ApplicationController
 
     respond_to do |format|
       if @round.save
-        format.html { redirect_to rounds_path, action: 'show',id: params[:id], notice: 'Round was successfully created.' }
+        format.html { redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Round was successfully created.' }
         format.json { render :show, status: :created, location: @round }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class RoundsController < ApplicationController
   def destroy
     @round.destroy
     respond_to do |format|
-      format.html { redirect_to rounds_url, notice: 'Round was successfully destroyed.' }
+      format.html { redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Round was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +70,6 @@ class RoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def round_params
-      params.require(:round).permit(:number, :tournemant_id)
+      params.require(:round).permit(:number, :tournament_id)
     end
 end

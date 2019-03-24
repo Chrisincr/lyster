@@ -1,10 +1,10 @@
-<%= form_with(model: tournemant, local: true) do |form| %>
-  <% if tournemant.errors.any? %>
+<%= form_with(model: tournament, local: true) do |form| %>
+  <% if tournament.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tournemant.errors.count, "error") %> prohibited this tournemant from being saved:</h2>
+      <h2><%= pluralize(tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
 
       <ul>
-      <% tournemant.errors.full_messages.each do |message| %>
+      <% tournament.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.select :user, @users %>
   </div>
 
   <div class="field">
@@ -32,6 +32,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit ( form.object.new_record? ? "Create" : "Update"), class: 'btn-primary'%>
+    <%= form.submit ( form.object.new_record? ? "Create" : "Update"), class: 'btn btn-primary'%>
   </div>
 <% end %>

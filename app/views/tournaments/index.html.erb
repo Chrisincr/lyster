@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tournaments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Organizer</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tournaments.each do |tournament| %>
+      <tr>
+        <td><%= tournament.name %></td>
+        <td><%= tournament.user.name %></td>
+        <td><%= tournament.description %></td>
+        <td><%= tournament.start_date %></td>
+        <td><%= link_to 'Show', tournament, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_tournament_path(tournament), class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tournament', new_tournament_path, class: 'btn btn-primary' %>

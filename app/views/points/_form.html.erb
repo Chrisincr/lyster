@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :challenger_id %>
-    <%= form.text_field :challenger_id %>
+    <%= form.select :challenger_id, @combatants %>
   </div>
 
   <div class="field">
@@ -29,6 +29,11 @@
   <div class="field">
     <%= form.label :challenger_score %>
     <%= form.number_field :challenger_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :match_id %>
+    <%= form.text_field :match_id %>
   </div>
 
   <div class="actions">

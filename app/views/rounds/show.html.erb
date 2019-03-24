@@ -10,12 +10,12 @@
       </p>
       
       <p>
-        <strong>Tournemant:</strong>
-        <%= @round.tournemant.name %>
+        <strong>Tournament:</strong>
+        <%= @round.tournament.name %>
       </p>
       
-      <%= link_to 'Edit', edit_round_path(params[:tid],params[:rid]) %> |
-      <%= link_to 'Back', tournemant_path(params[:tid]) %>
+      <%= link_to 'Edit', edit_round_path(params[:tid],params[:rid]), class: 'btn btn-primary'  %> |
+      <%= link_to 'Back', tournament_path(params[:tid]), class: 'btn btn-primary'  %>
     </div>
 
     <div class='col-md-6'>

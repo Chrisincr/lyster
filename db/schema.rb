@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2019_03_22_153014) do
 
   create_table "combatants", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "tournemant_id"
+    t.bigint "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tournemant_id"], name: "index_combatants_on_tournemant_id"
+    t.index ["tournament_id"], name: "index_combatants_on_tournament_id"
     t.index ["user_id"], name: "index_combatants_on_user_id"
   end
 
@@ -46,20 +46,20 @@ ActiveRecord::Schema.define(version: 2019_03_22_153014) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "number"
-    t.bigint "tournemant_id"
+    t.bigint "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tournemant_id"], name: "index_rounds_on_tournemant_id"
+    t.index ["tournament_id"], name: "index_rounds_on_tournament_id"
   end
 
-  create_table "tournemants", force: :cascade do |t|
+  create_table "tournaments", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id"
     t.string "description"
     t.date "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tournemants_on_user_id"
+    t.index ["user_id"], name: "index_tournaments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,11 +70,11 @@ ActiveRecord::Schema.define(version: 2019_03_22_153014) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "combatants", "tournemants"
+  add_foreign_key "combatants", "tournaments"
   add_foreign_key "combatants", "users"
   add_foreign_key "matches", "rounds"
   add_foreign_key "points", "combatants", column: "challenger_id"
   add_foreign_key "points", "combatants", column: "contender_id"
-  add_foreign_key "rounds", "tournemants"
-  add_foreign_key "tournemants", "users"
+  add_foreign_key "rounds", "tournaments"
+  add_foreign_key "tournaments", "users"
 end

@@ -4,46 +4,56 @@ Rails.application.routes.draw do
   #resources :matches
   #resources :rounds
   #resources :combatants
-  #resources :tournemants
+  #resources :tournaments
   resources :users
 
-  get "tournemants" => "tournemants#index", as: 'tournemants'
-  get "tournemants/new" => "tournemants#new", as: 'new_tournemant'
-  post "tournemants" => "tournemants#create"
-  delete "tournemants/:tid" => "tournemants#destroy"
-  patch "tournemants/:tid" => "tournemants#update"
-  put "tournemants" => "tournemants#update"
-  get "tournemants/:tid" => "tournemants#show", as: 'tournemant'
-  get "tournemants/:tid/edit" => "tournemants#edit", as: 'edit_tournemant'
+  get "tournaments" => "tournaments#index", as: 'tournaments'
+  get "tournaments/new" => "tournaments#new", as: 'new_tournament'
+  post "tournaments" => "tournaments#create"
+  delete "tournaments/:tid" => "tournaments#destroy"
+  patch "tournaments/:tid" => "tournaments#update"
+  put "tournaments" => "tournaments#update"
+  get "tournaments/:tid" => "tournaments#show", as: 'tournament'
+  get "tournaments/:tid/edit" => "tournaments#edit", as: 'edit_tournament'
 
-  get "combatants" => "combatants#index", as: 'combatants'
-  get "combatants/new" => "combatants#new", as: 'new_combatant'
-  post "combatants" => "combatants#create"
-  delete "combatants/:cid" => "combatants#destroy"
-  patch "combatants/:cid" => "combatants#update"
-  put "combatants" => "combatants#update"
-  get "combatants/:cid" => "combatants#show", as: 'combatant'
-  get "combatants/:cid/edit" => "combatants#edit", as: 'edit_combatant'
-
-
-
-  get "tournemants/:tid/rounds" => "rounds#index", as: 'rounds'
-  get "tournemants/:tid/rounds/new" => "rounds#new", as: 'new_round'
-  post "tournemants/:tid/rounds" => "rounds#create"
-  delete "tournemants/:tid/rounds/:rid" => "rounds#destroy"
-  patch "tournemants/:tid/rounds/:rid" => "rounds#update"
-  put "tournemants/:tid/rounds" => "rounds#update"
-  get "tournemants/:tid/rounds/:rid" => "rounds#show", as: 'round'
-  get "tournemants/:tid/rounds/:rid/edit" => "rounds#edit", as: 'edit_round'
+  get "tournaments/:tid/combatants" => "combatants#index", as: 'combatants'
+  get "tournaments/:tid/combatants/new" => "combatants#new", as: 'new_combatant'
+  post "tournaments/:tid/combatants" => "combatants#create"
+  delete "tournaments/:tid/combatants/:cid" => "combatants#destroy"
+  patch "tournaments/:tid/combatants/:cid" => "combatants#update"
+  put "tournaments/:tid/combatants" => "combatants#update"
+  get "tournaments/:tid/combatants/:cid" => "combatants#show", as: 'combatant'
+  get "tournaments/:tid/combatants/:cid/edit" => "combatants#edit", as: 'edit_combatant'
 
 
-  get "tournemants/:tid/rounds/:rid/matches" => "matches#index", as: 'matches'
-  get "tournemants/:tid/rounds/:rid/matches/new" => "matches#new", as: 'new_match'
-  post "tournemants/:tid/rounds/:rid/matches" => "matches#create"
-  delete "tournemants/:tid/rounds/:rid/matches/:mid" => "matches#destroy"
-  patch "tournemants/:tid/rounds/:rid/matches/:mid" => "matches#update"
-  put "tournemants/:tid/rounds/:rid/matches/:mid" => "matches#update"
-  get "tournemants/:tid/rounds/:rid/matches/:mid" => "matches#show", as: 'match'
-  get "tournemants/:tid/rounds/:rid/matches/:mid/edit" => "matches#edit", as: 'edit_match'
+
+  get "tournaments/:tid/rounds" => "rounds#index", as: 'rounds'
+  get "tournaments/:tid/rounds/new" => "rounds#new", as: 'new_round'
+  post "tournaments/:tid/rounds" => "rounds#create"
+  delete "tournaments/:tid/rounds/:rid" => "rounds#destroy"
+  patch "tournaments/:tid/rounds/:rid" => "rounds#update"
+  put "tournaments/:tid/rounds" => "rounds#update"
+  get "tournaments/:tid/rounds/:rid" => "rounds#show", as: 'round'
+  get "tournaments/:tid/rounds/:rid/edit" => "rounds#edit", as: 'edit_round'
+
+
+  get "tournaments/:tid/rounds/:rid/matches" => "matches#index", as: 'matches'
+  get "tournaments/:tid/rounds/:rid/matches/new" => "matches#new", as: 'new_match'
+  post "tournaments/:tid/rounds/:rid/matches" => "matches#create"
+  delete "tournaments/:tid/rounds/:rid/matches/:mid" => "matches#destroy"
+  patch "tournaments/:tid/rounds/:rid/matches/:mid" => "matches#update"
+  put "tournaments/:tid/rounds/:rid/matches/:mid" => "matches#update"
+  get "tournaments/:tid/rounds/:rid/matches/:mid" => "matches#show", as: 'match'
+  get "tournaments/:tid/rounds/:rid/matches/:mid/edit" => "matches#edit", as: 'edit_match'
+
+
+  get "tournaments/:tid/rounds/:rid/matches/:mid/points" => "points#index", as: 'points'
+  get "tournaments/:tid/rounds/:rid/matches/:mid/points/new" => "points#new", as: 'new_point'
+  post "tournaments/:tid/rounds/:rid/matches/:mid/points" => "points#create"
+  delete "tournaments/:tid/rounds/:rid/matches/:mid/points/:pid" => "points#destroy"
+  patch "tournaments/:tid/rounds/:rid/matches/:mid/points/:pid" => "points#update"
+  put "tournaments/:tid/rounds/:rid/matches/:mid/points/:pid" => "points#update"
+  get "tournaments/:tid/rounds/:rid/matches/:mid/points/:pid" => "points#show", as: 'point'
+  get "tournaments/:tid/rounds/:rid/matches/:mid/points/:pid/edit" => "points#edit", as: 'edit_point'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

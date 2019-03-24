@@ -2,12 +2,12 @@
 
 <p>
   <strong>Contender:</strong>
-  <%= @point.contender %>
+  <%= @point.contender.user.name %>
 </p>
 
 <p>
   <strong>Challenger:</strong>
-  <%= @point.challenger %>
+  <%= @point.challenger.user.name %>
 </p>
 
 <p>
@@ -21,4 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_point_path(@point) %> |
-<%= link_to 'Back', points_path %>
+<%= link_to 'Back', match_path %>
