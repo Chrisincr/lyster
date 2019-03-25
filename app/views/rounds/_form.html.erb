@@ -19,12 +19,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :tournament_id %>
-    <%= form.text_field :tournament_id %>
+    <%= form.hidden_field :tournament_id %>
+    <%= form.label :tournament_id %> |
+    <%= @tournament.name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+  <%= form.submit ( form.object.new_record? ? "Create" : "Update"), class: 'btn btn-primary'%>
   </div>
 
 <% end %>

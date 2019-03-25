@@ -22,6 +22,7 @@ class TournamentsController < ApplicationController
 
   # GET /tournaments/1/edit
   def edit
+    @users = User.all.collect{|u| [u.name, u.id]}
   end
 
   # POST /tournaments
@@ -67,7 +68,7 @@ class TournamentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tournament
-      @tournament = Tournament.find(params[:tid])
+      @tournament = Tournament.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

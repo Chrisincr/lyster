@@ -9,8 +9,8 @@
         <%= @match.round.number %>
       </p>
 
-      <%= link_to 'Edit', edit_match_path(params[:tid],params[:rid],params[:mid]) %> |
-      <%= link_to 'Back', round_path(params[:tid],params[:rid]) %>
+      <%= link_to 'Edit', edit_match_path(params[:tid],params[:rid],params[:mid]), class: 'btn btn-primary'  %> |
+      <%= link_to 'Back', round_path(params[:tid],params[:rid]), class: 'btn btn-primary'  %>
     </div>
 
       <div class='col-md-6'>
@@ -18,3 +18,4 @@
       </div>
   </div>
 </div>
+

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Participants</h1>
 
@@ -16,9 +16,9 @@
       <tr>
         <td><%= combatant.user.name %></td>
         
-        <td><%= link_to 'Show', combatant_path(params[:tid],combatant), class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Edit', edit_combatant_path(params[:tid],combatant), class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Destroy', combatant_path(params[:tid],combatant), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Show', @combatant, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Edit', @combatant, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Destroy', @combatant, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Combatant', new_combatant_path, class: 'btn btn-primary' %>
+<%= link_to 'New Combatant', @combatant, class: 'btn btn-primary' %>

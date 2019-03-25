@@ -2,5 +2,5 @@
 
 <%= render 'form', combatant: @combatant %>
 
-<%= link_to 'Show', @combatant %> |
-<%= link_to 'Back', combatants_path %>
+<%= link_to 'Show', @combatant ,class: 'btn btn-primary' %> |
+<%= link_to 'Back', tournament_path(params[:tid]), class: 'btn btn-primary'  %>

@@ -1,41 +1,19 @@
 
+<hr>
 <div class='container'>
   <div class='row'>
-    <div class ='col-md-6'>
-
-    <p id="notice"><%= notice %></p>
-
-    <p>
-      <strong>Name:</strong>
-      <%= @tournament.name %>
-    </p>
-    
-    <p>
-      <strong>Organizer:</strong>
-      <%= @tournament.user.name %>
-    </p>
-    
-    <p>
-      <strong>Description:</strong>
-      <%= @tournament.description %>
-    </p>
-    
-    <p>
-      <strong>Start date:</strong>
-      <%= @tournament.start_date %>
-    </p>
-    
+  <div class ='col-md-6'>
+    <%= render :partial => 'tournaments/info' %>
     <%= link_to 'Edit', edit_tournament_path(@tournament), class: 'btn btn-primary' %> |
     <%= link_to 'Back', tournaments_path, class: 'btn btn-primary' %>
-
-
-
     </div>
     <div class ='col-md-6'>
       <%= render :partial => 'rounds/index' %>
     </div>
   </div>
+  <hr>
   <div class='row'>
+  
     <div class ='col-md-12'>
       <%= render :partial => 'combatants/index' %>
     </div>

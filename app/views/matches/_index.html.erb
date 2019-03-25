@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Matches</h1>
 
@@ -23,9 +23,9 @@
           <td> define contender </td>
           <td> define challenger </td>
         <% end %>
-        <td><%= link_to 'Show', match_path(params[:tid],params[:rid],match), class: 'btn btn-primary'  %></td>
-        <td><%= link_to 'Edit', edit_match_path(params[:tid],params[:rid],match), class: 'btn btn-primary'  %></td>
-        <td><%= link_to 'Destroy', match_path(params[:tid],params[:rid],match), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+        <td><%= link_to 'Show', tournament_round_match_path(tournament_id:@tournament,round_id:@round,id:match.id), class: 'btn btn-primary'  %></td>
+        <td><%= link_to 'Edit', edit_tournament_round_match_path(tournament_id:@tournament,round_id:@round,id:match.id), class: 'btn btn-primary'  %></td>
+        <td><%= link_to 'Destroy', tournament_round_match_path(tournament_id:@tournament,round_id:@round,id:match.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Match', new_match_path, class: 'btn btn-primary'  %>
+<%= link_to 'New Match', new_tournament_round_match_path(tournament_id:@tournament,round_id:@round), class: 'btn btn-primary'  %>

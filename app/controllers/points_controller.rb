@@ -15,13 +15,15 @@ class PointsController < ApplicationController
   # GET /points/new
   def new
     @point = Point.new(match_id:params[:mid])
-    @combatants = Combatant.all.collect{|u| [u.user.name, u.id]}
+    tourney = Tournament.find(params[:tid])
+    @combatants = tourney.combatants.all.collect{|u| [u.user.name, u.id]}
     
   end
 
   # GET /points/1/edit
   def edit
-    @combatants = Combatant.all.collect{|u| [u.user.name, u.id]}
+    tourney = Tournament.find(params[:tid])
+    @combatants = tourney.combatants.all.collect{|u| [u.user.name, u.id]}
   end
 
   # POST /points
