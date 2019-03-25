@@ -16,9 +16,9 @@
       <tr>
         <td><%= combatant.user.name %></td>
         
-        <td><%= link_to 'Show', @combatant, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Edit', @combatant, class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Destroy', @combatant, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Show', combatant_path(id:combatant.id), class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_combatant_path(id:combatant.id), class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Destroy', combatant_path(id:combatant.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Combatant', @combatant, class: 'btn btn-primary' %>
+<%= link_to 'New Combatant', new_tournament_combatant_path(tournament_id:@tournament.id), class: 'btn btn-primary' %>

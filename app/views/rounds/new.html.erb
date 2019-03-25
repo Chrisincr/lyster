@@ -2,4 +2,4 @@
 
 <%= render 'form', round: @round %>
 
-<%= link_to 'Back', tournament_path(tid: params[:tid]) %>
+<%= link_to 'Back', tournament_path(id: params[:tournament_id]), class: 'btn btn-primary'  %>

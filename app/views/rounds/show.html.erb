@@ -10,7 +10,7 @@
         <strong>Round Info:</strong>
         <%= @round.number %>
       </p>
-      <%= link_to 'Edit', edit_tournament_round_path, class: 'btn btn-primary'  %> |
+      <%= link_to 'Edit', edit_round_path(id:@round.id), class: 'btn btn-primary'  %> |
       <%= link_to 'Back', tournament_path(params[:id]), class: 'btn btn-primary'  %>
     </div>
 

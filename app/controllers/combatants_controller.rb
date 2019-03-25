@@ -14,13 +14,15 @@ class CombatantsController < ApplicationController
 
   # GET /combatants/new
   def new
-    @combatant = Combatant.new(tournament_id:params[:tid])
+    @combatant = Combatant.new(tournament_id:params[:tournament_id])
+    @tournament = Tournament.find(params[:tournament_id])
     @users = User.all.collect{|u| [u.name, u.id]}
   end
 
   # GET /combatants/1/edit
   def edit
     @users = User.all.collect{|u| [u.name, u.id]}
+    @tournament = Tournament.find(@combatant.tournament_id)
   end
 
   # POST /combatants
@@ -30,11 +32,11 @@ class CombatantsController < ApplicationController
     exists = Combatant.where(combatant_params).count
     if exists > 0
      
-      redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Participant Already Entered.' and return
+      redirect_to tournament_path(id:@combatant.tournament_id), action: 'show', notice: 'Participant Already Entered.' and return
     end
     respond_to do |format|
       if @combatant.save
-        format.html { redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Combatant was successfully created.' }
+        format.html { redirect_to tournament_path(id:@combatant.tournament_id), action: 'show', notice: 'Combatant was successfully created.' }
         format.json { render :show, status: :created, location: @combatant }
       else
         format.html { render :new }
@@ -60,9 +62,10 @@ class CombatantsController < ApplicationController
   # DELETE /combatants/1
   # DELETE /combatants/1.json
   def destroy
+    tournament_id = @combatant.tournament_id
     @combatant.destroy
     respond_to do |format|
-      format.html { redirect_to tournament_path, action: 'show',tid: params[:tid], notice: 'Combatant was successfully destroyed.' }
+      format.html { redirect_to tournament_path(id:tournament_id), action: 'show', notice: 'Combatant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +73,7 @@ class CombatantsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_combatant
-      @combatant = Combatant.find(params[:cid])
+      @combatant = Combatant.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

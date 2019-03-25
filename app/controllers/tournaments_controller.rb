@@ -32,6 +32,8 @@ class TournamentsController < ApplicationController
 
     respond_to do |format|
       if @tournament.save
+        p '***************************'
+        p 'User created redirecting'
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
         format.json { render :show, status: :created, location: @tournament }
       else

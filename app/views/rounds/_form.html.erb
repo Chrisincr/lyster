@@ -1,5 +1,5 @@
 
-<%= form_with(model: round, local: true) do |form| %>
+<%= form_with(model: @round, url: (@round.new_record? ? tournament_rounds_path(tournament_id:@tournament.id): round_path(id:@round.id)), local: true) do |form| %>
 
   <% if round.errors.any? %>
     <div id="error_explanation">

@@ -2,5 +2,5 @@
 
 <%= render 'form', match: @match %>
 
-<%= link_to 'Show', tournament_round_match_path(tournament_id:params[:tournament_id],round_id:params[:round_id],match_id:params[:match_id]), class: 'btn btn-primary'  %> |
-<%= link_to 'Back', tournament_round_path(tournament_id:params[:tournament_id],round_id:params[:round_id]), class: 'btn btn-primary'  %>
+<%= link_to 'Show', match_path(id:@match.id), class: 'btn btn-primary'  %> |
+<%= link_to 'Back', round_path(id:@match.round.id), class: 'btn btn-primary'  %>

@@ -3,4 +3,4 @@
 <%= render 'form', combatant: @combatant %>
 
 <%= link_to 'Show', @combatant ,class: 'btn btn-primary' %> |
-<%= link_to 'Back', tournament_path(params[:tid]), class: 'btn btn-primary'  %>
+<%= link_to 'Back', tournament_path(id:@tournament.id), class: 'btn btn-primary'  %>

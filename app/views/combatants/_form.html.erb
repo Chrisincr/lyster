@@ -1,4 +1,4 @@
-<%= form_with(model: combatant, local: true) do |form| %>
+<%= form_with(model: @combatant, url: (@combatant.new_record? ? tournament_combatants_path(tournament_id:@tournament.id): combatant_path(id:@combatant.id)), local: true) do |form| %>
   <% if combatant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(combatant.errors.count, "error") %> prohibited this combatant from being saved:</h2>
@@ -17,8 +17,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :tournament_id %>
-    <%= form.text_field :tournament_id %>
+    <%= form.hidden_field :tournament_id %>
+    <%= form.label :tournament_id %> |
+    <%= @tournament.name %>
   </div>
 
   <div class="actions">

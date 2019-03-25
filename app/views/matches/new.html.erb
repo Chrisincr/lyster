@@ -2,4 +2,4 @@
 
 <%= render 'form', match: @match %>
 
-<%= link_to 'Back', matches_path %>
+<%= link_to 'Back',  round_path(id: params[:round_id]), class: 'btn btn-primary'  %>

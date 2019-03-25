@@ -32,7 +32,12 @@
           </div>
 
           <div class = 'col-md'>
-            <button>login</button>
+          <% session[:prev_url] = request.url %>
+          <% if current_user %>
+            <%= link_to 'Logout', logout_path, method: :delete, class: 'btn btn-primary' %>
+          <% else %>
+            <%= render :partial => 'sessions/form' %>
+          <% end %>
           </div>
         </div>
       </nav>

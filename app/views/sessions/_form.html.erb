@@ -1,0 +1,12 @@
+<%= form_with(model: @user, url: login_path(), local: true) do |form| %>
+<div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+<div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <%= form.submit ( "Login"), class: 'btn btn-primary'%>
+<% end%>
