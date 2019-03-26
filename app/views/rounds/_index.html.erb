@@ -16,8 +16,11 @@
           <td><%= round.number %></td>
           <td><%= round.matches.count %></td>
           <td><%= link_to 'Show', round_path(id:round.id) , class: 'btn btn-primary'%></td>
-          <td><%= link_to 'Edit', edit_round_path(id:round.id), class: 'btn btn-primary' %></td>
-          <td><%= link_to 'Destroy', round_path(id:round.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+
+          <% if (current_user && current_user.id == round.tournament.user.id) %>
+            <td><%= link_to 'Edit', edit_round_path(id:round.id), class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Destroy', round_path(id:round.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          <% end %>
         </tr>
       <% end %>
     
@@ -25,5 +28,7 @@
 </table>
 
 <br>
+<% if (current_user && current_user.id == @tournament.user.id) %>
+  <%= link_to 'New Round', new_tournament_round_path(tournament_id:@tournament.id), class: 'btn btn-primary' %>
 
-<%= link_to 'New Round', new_tournament_round_path(tournament_id:@tournament.id), class: 'btn btn-primary' %>
+<% end %>

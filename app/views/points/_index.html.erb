@@ -21,13 +21,18 @@
         <td><%= point.contender_score %></td>
         <td><%= point.challenger_score %></td>
         <td><%= link_to 'Show', point_path(id:point.id) , class: 'btn btn-primary' %></td>
+
+        <% if (current_user && current_user.id == @match.round.tournament.user.id) %>
         <td><%= link_to 'Edit', edit_point_path(id:point.id) , class: 'btn btn-primary' %></td>
         <td><%= link_to 'Destroy', point_path(id:point.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'  %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if (current_user && current_user.id == @match.round.tournament.user.id) %>
+  <%= link_to 'New Point', new_match_point_path(match_id:@match.id) , class: 'btn btn-primary' %>
+<% end %>
 
-<%= link_to 'New Point', new_match_point_path(match_id:@match.id) , class: 'btn btn-primary' %>

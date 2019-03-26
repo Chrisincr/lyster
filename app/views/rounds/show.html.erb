@@ -10,8 +10,11 @@
         <strong>Round Info:</strong>
         <%= @round.number %>
       </p>
-      <%= link_to 'Edit', edit_round_path(id:@round.id), class: 'btn btn-primary'  %> |
-      <%= link_to 'Back', tournament_path(params[:id]), class: 'btn btn-primary'  %>
+      <% if (current_user && current_user.id == @round.tournament.user.id) %>
+        <%= link_to 'Edit', edit_round_path(id:@round.id), class: 'btn btn-primary'  %> |
+      <% end %>
+      
+      <%= link_to 'Back', tournament_path(id:@round.tournament.id), class: 'btn btn-primary'  %>
     </div>
 
     <div class='col-md-6'>

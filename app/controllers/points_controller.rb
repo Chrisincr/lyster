@@ -11,6 +11,7 @@ class PointsController < ApplicationController
   # GET /points/1
   # GET /points/1.json
   def show
+    @tournament = Tournament.find(@match.round.tournament.id)
   end
 
   # GET /points/new

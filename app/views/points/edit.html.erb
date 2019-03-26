@@ -3,4 +3,4 @@
 <%= render 'form', point: @point %>
 
 <%= link_to 'Show', @point, class: 'btn btn-primary' %> |
-<%= link_to 'Back', match_path, class: 'btn btn-primary' %>
+<%= link_to 'Back', match_path(id:@point.match.id), class: 'btn btn-primary' %>

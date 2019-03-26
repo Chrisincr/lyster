@@ -19,6 +19,8 @@
   <strong>Challenger score:</strong>
   <%= @point.challenger_score %>
 </p>
+<% if (current_user && current_user.id == @tournament.user.id) %>
+  <%= link_to 'Edit', edit_point_path(@point), class: 'btn btn-primary' %> |
 
-<%= link_to 'Edit', edit_point_path(@point), class: 'btn btn-primary' %> |
-<%= link_to 'Back', match_path, class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Back', match_path(id:@point.match.id), class: 'btn btn-primary' %>

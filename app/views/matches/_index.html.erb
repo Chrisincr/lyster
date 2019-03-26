@@ -24,13 +24,18 @@
           <td> define challenger </td>
         <% end %>
         <td><%= link_to 'Show', match_path(id:match.id), class: 'btn btn-primary'  %></td>
+
+        <% if (current_user && current_user.id == match.round.tournament.user.id) %>
         <td><%= link_to 'Edit', edit_match_path(id:match.id), class: 'btn btn-primary'  %></td>
         <td><%= link_to 'Destroy', match_path(id:match.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if (current_user && current_user.id == @tournament.user.id) %>
+  <%= link_to 'New Match', new_round_match_path(round_id:@round.id), class: 'btn btn-primary'  %>
 
-<%= link_to 'New Match', new_round_match_path(round_id:@round.id), class: 'btn btn-primary'  %>
+<% end %>
