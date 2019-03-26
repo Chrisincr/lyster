@@ -37,7 +37,7 @@ class TournamentsController < ApplicationController
         format.html { redirect_to @tournament, notice: 'Tournament was successfully created.' }
         format.json { render :show, status: :created, location: @tournament }
       else
-        format.html { render :new }
+        format.html { redirect_to new_tournament_path }
         format.json { render json: @tournament.errors, status: :unprocessable_entity }
       end
     end
