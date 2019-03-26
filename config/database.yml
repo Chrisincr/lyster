@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: lyster_production
-  username: lyster
+  username: ubuntu
   password: <%= ENV['LYSTER_DATABASE_PASSWORD'] %>
